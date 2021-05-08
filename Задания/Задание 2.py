@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import sys
+import math
 
 if __name__ == '__main__':
-    a = list(map(float, input("Введите значения U: ").split()))
+    a = list(map(float, input("Введите элементы списка: ").split()))
     A = int(input("Введите минимальное значение диапазона (A): "))
     B = int(input("Введите максимальное значение диапазона (B): "))
     m = 0
@@ -20,6 +21,6 @@ if __name__ == '__main__':
             n = i
     c = a[n:]
     s = sum(c, -m)
-    c.sort(reverse=True)
+    c.sort(key=lambda x: math.fabs(x), reverse=True)
     print("Сумма чисел после максимального элемента, введёного списка", s)
     print(c)
